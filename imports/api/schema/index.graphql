@@ -1,0 +1,10 @@
+#import "./page.graphql"
+
+type Query {
+  page: Page
+}
+
+type Mutation {
+  changeContent(input: ContentInput!): Boolean
+  changeLogo(input: LogoInput!): Boolean
+}

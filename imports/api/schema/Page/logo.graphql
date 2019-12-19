@@ -1,0 +1,7 @@
+type Logo {
+  text: String
+}
+
+input LogoInput {
+  text: String!
+}

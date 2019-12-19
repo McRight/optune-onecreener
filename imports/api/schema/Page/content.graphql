@@ -1,0 +1,16 @@
+enum ContentType {
+  TEXT
+  NONE
+}
+
+type Content {
+  title: String
+  text: String
+  type: ContentType
+}
+
+input ContentInput {
+  title: String!
+  text: String!
+  type: ContentType!
+}

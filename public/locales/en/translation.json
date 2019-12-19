@@ -1,0 +1,27 @@
+{
+  "page": {
+    "subtitle": "Page editor",
+    "title": "Create your page",
+    "content": {
+      "title": {
+        "label": "Page title"
+      },
+      "text": {
+        "label": "Main text"
+      },
+      "type": {
+        "options": {
+          "text": "Free text",
+          "none": "None"
+        }
+      },
+      "save": "Save content"
+    },
+    "logo": {
+      "text": {
+        "label": "Logo text"
+      },
+      "save": "Save Logo"
+    }
+  }
+}

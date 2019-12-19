@@ -1,0 +1,7 @@
+#import './Page/content.graphql'
+#import './Page/logo.graphql'
+
+type Page {
+  content: Content
+  logo: Logo
+}
