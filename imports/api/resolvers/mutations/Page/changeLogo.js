@@ -1,18 +1,18 @@
-import { getPage } from './utils/getPage'
-import { updatePage } from './utils/updatePage'
+import { getPage } from './utils/getPage';
+import { updatePage } from './utils/updatePage';
 
 const INCLUDED_FIELDS = {
-  logo: 1,
-}
+  logo: 1
+};
 
 export const changeLogo = function(root, { input }, { userId }) {
   /*
    * Get page & input
    */
 
-  const { page } = getPage({ userId })
-  const { logo } = page
-  const { text } = input
+  const { page } = getPage({ userId });
+  const { logo } = page;
+  const { text } = input;
 
   /*
    * Set values
@@ -20,17 +20,17 @@ export const changeLogo = function(root, { input }, { userId }) {
 
   const values = {
     logo: {
-      text,
-    },
-  }
+      text
+    }
+  };
 
   /*
    * Update page
    */
 
-  updatePage({ page, userId, values })
+  updatePage({ page, userId, values });
 
-  console.log('Test')
+  console.log('Test');
 
-  return true
-}
+  return true;
+};
