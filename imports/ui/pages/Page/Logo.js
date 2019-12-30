@@ -35,17 +35,25 @@ const Logo = ({ page }) => {
   const { t } = useTranslation();
   const { logo } = page || { logo: { text: '' } };
 
+  const colors = logo.color.split(',').map(color => color.replace(/\D/g, ''));
+
   const [text, setText] = useState(logo.text);
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
-  const [activeFontFamily, setActiveFontFamily] = useState('Open Sans');
+  const [activeFontFamily, setActiveFontFamily] = useState(logo.font);
   const [chosenColor, setChosenColor] = useState({
-    r: 0,
-    g: 0,
-    b: 0,
-    a: 1
+    r: colors[0],
+    g: colors[1],
+    b: colors[2],
+    a: colors[3]
   });
 
-  const dirty = text !== logo.text;
+  const dirty =
+    text !== logo.text ||
+    activeFontFamily !== logo.font ||
+    colors[0] !== chosenColor.r ||
+    colors[1] !== chosenColor.g ||
+    colors[2] !== chosenColor.b ||
+    colors[3] !== chosenColor.a;
 
   const styles = reactCSS({
     default: {
@@ -99,7 +107,13 @@ const Logo = ({ page }) => {
 
       <Row>
         <MediumText>{t('page.logo.text.label')}</MediumText>
-        <Input value={text} onChange={e => setText(e.target.value)} />
+        <Input
+          value={text}
+          onChange={e => {
+            console.log(chosenColor);
+            setText(e.target.value);
+          }}
+        />
       </Row>
 
       <Row>
@@ -155,7 +169,9 @@ const Logo = ({ page }) => {
         navText='Edit Content'
         onSave={save =>
           save({
-            text
+            text,
+            color: `rgba(${chosenColor.r}, ${chosenColor.g}, ${chosenColor.b}, ${chosenColor.a})`,
+            font: activeFontFamily
           })
         }
         refetchQuery={PAGE}

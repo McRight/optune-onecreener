@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
 
 export const PAGE = gql`
   query fetchPage {
@@ -10,7 +10,9 @@ export const PAGE = gql`
       }
       logo {
         text
+        color
+        font
       }
     }
   }
-`
+`;
